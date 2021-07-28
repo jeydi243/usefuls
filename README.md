@@ -45,3 +45,8 @@ background-size: 40.00px 40.00px;
 
     }
    ```
+
+## Additional Link
+1. [CssTricks]([https://link](https://css-tricks.com/stripes-css/))
+2. second
+3. third
