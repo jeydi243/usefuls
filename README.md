@@ -1,4 +1,10 @@
 # Index
+
+
+## Connaitre la liste packages global
+```cmd
+   npm list -g --depth 0
+```
 ## Methode 1: Set background stripe in css (not animated)
 ```{.css}
 background-image: linear-gradient(45deg, #ffffff 25%, #f0f0f0 25%, #f0f0f0 50%, #ffffff 50%, #ffffff 75%, #f0f0f0 75%, #f0f0f0 100%);
