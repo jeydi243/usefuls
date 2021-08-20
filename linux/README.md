@@ -10,3 +10,8 @@
 ```bash
    sudo systemctl mask sleep.target suspend.target hibernate.target hybrid-sleep.target
 ```
+
+## Generate sha1 and sha-256
+```bash
+keytool -list -v -keystore ~/.android/debug.keystore -alias androiddebugkey -storepass android -keypass android
+```
