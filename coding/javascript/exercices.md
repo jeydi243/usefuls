@@ -49,12 +49,56 @@ function findOutlier(integers){
 function isOdd(x){ return x%2 == 0}
 ```
 #### Test
-`describe("Tests", () => {
-  it("test if", () => {
-    Test.assertEquals(findOutlier([0, 1, 2]), 1)
-    Test.assertEquals(findOutlier([1, 2, 3]), 2)
-    Test.assertEquals(findOutlier([2,6,8,10,3]), 3)
-    Test.assertEquals(findOutlier([0,0,3,0,0]), 3)
-    Test.assertEquals(findOutlier([1,1,0,1,1]), 0)
+```javascript
+    describe("Tests", () => {
+      it("test if all list are correct", () => {
+        Test.assertEquals(findOutlier([0, 1, 2]), 1)
+        Test.assertEquals(findOutlier([1, 2, 3]), 2)
+        Test.assertEquals(findOutlier([2,6,8,10,3]), 3)
+        Test.assertEquals(findOutlier([0,0,3,0,0]), 3)
+        Test.assertEquals(findOutlier([1,1,0,1,1]), 0)
+      });
+    });
+```
+
+
+
+
+## Question 3
+Jaden Smith, le fils de Will Smith, est la star de films tels que The Karate Kid (2010) et After Earth (2013). Jaden est également connu pour certaines de ses philosophies qu'il livre via Twitter. Lorsqu'il écrit sur Twitter, il est connu pour mettre presque toujours une majuscule à chaque mot. Pour plus de simplicité, vous devrez mettre une majuscule à chaque mot. Regardez comment les contractions doivent être dans l'exemple ci-dessous.
+
+Votre tâche consiste à convertir les chaînes de caractères en fonction de la façon dont elles seraient écrites par Jaden Smith. Les chaînes sont des citations réelles de Jaden Smith, mais elles ne sont pas mises en majuscules de la même manière qu'il les a tapées à l'origine.
+
+Traduit avec www.DeepL.com/Translator (version gratuite)
+
+**Examples**
+Not Jaden-Cased: "How can mirrors be real if our eyes aren't real"
+Jaden-Cased:     "How Can Mirrors Be Real If Our Eyes Aren't Real"
+
+### Solution
+```javascript
+   String.prototype.toJadenCase = function () {
+  var allmots = this.split(' ')
+  var newthis = []
+  if(allmots.length>0){
+    for(i=0; i<allmots.length;i++){
+      var mot = allmots[i]
+      var firstLetter = mot.split('')[0]
+      var newmot = firstLetter.toUpperCase() + mot.substring(1);
+      newthis.push(newmot)
+    }
+  }else{
+    newthis.push(this.split()[0].toUpperCase() + this.substring(1))
+  }
+  return newthis.join(' ');
+};
+```
+### Test
+```javascript
+  describe("Tests", () => {
+  it("test", () => {
+    var str = "How can mirrors be real if our eyes aren't real";
+    Test.assertEquals(str.toJadenCase(), "How Can Mirrors Be Real If Our Eyes Aren't Real");
   });
-});`
+  });
+```
