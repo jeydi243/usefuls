@@ -102,3 +102,40 @@ Jaden-Cased:     "How Can Mirrors Be Real If Our Eyes Aren't Real"
   });
   });
 ```
+
+## Question 4
+Créez une fonction qui prend un chiffre romain comme argument et renvoie sa valeur sous la forme d'un nombre entier décimal. Vous n'avez pas besoin de valider la forme du chiffre romain.
+
+Les chiffres romains modernes sont écrits en exprimant chaque chiffre décimal du nombre à encoder séparément, en commençant par le chiffre le plus à gauche et en sautant tous les 0. Ainsi, 1990 s'écrit "MCMXC" (1000 = M, 900 = CM, 90 = XC) et 2008 s'écrit "MMVIII" (2000 = MM, 8 = VIII). Le chiffre romain de 1666, "MDCLXVI", utilise chaque lettre dans l'ordre décroissant.
+**Examples**
+
+`solution('XXI'); // should return 21`
+
+**Help**
+```javascript
+Symbol    Value
+I          1
+V          5
+X          10
+L          50
+C          100
+D          500
+M          1,000
+solution('XXI'); // should return 21
+```
+### Solution
+```javascript
+  function solution(roman){
+    var symbol = {"I":1,"V":5,"X":10,"L":50,"C":100,"D":500,"M":1000}
+    var som = 0
+    var newroman = roman.split('')
+    for(var i=0;i<newroman.length;i++){
+      if(symbol[newroman[i]] < symbol[newroman[i+1]]){
+        som -= symbol[newroman[i]]
+      }else{
+        som += symbol[newroman[i]]
+      }
+    }
+    return som;
+  }
+```
